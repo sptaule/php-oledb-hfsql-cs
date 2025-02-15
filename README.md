@@ -74,6 +74,29 @@ Globalement :
 
 Pour activer cette option, définir la variable `AUTO_CONVERT_TYPES` (qui est utilisée dans la classe TypeManager) à `true`.
 
+## Exemples
+
+```php
+// get() pour récupérer un enregistrement
+$user = Database::get("SELECT id, name, email, password FROM CLIENTS WHERE email = ?", [$email]);
+
+// getAll() pour récupérer plusieurs enregistrements
+$factures = Database::getAll("SELECT id, reference FROM FACTURES WHERE date_expiration BETWEEN ? AND ?", [$dateFrom, $dateTo]);
+
+// update() pour mettre à jour un enregistrement
+Database::update('CLIENTS', ["email = $newEmail"], ["name = ?"], [$name]);
+
+// insert() pour ajouter un enregistrement
+Database::insert("FACTURES", [
+  "reference" => $reference,
+  "user_id" => $userId,
+  "date_expiration" = $date
+]);
+
+// delete() pour supprimer un enregistrement
+Database::delete('CLIENTS', "id = ?", [$id]);
+```
+
 ## Problème rencontrés
 
 Évidemment, les types propres à HFSQL ne sont pas (à ma connaissance) récupérables.  
