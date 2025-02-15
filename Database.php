@@ -1,7 +1,5 @@
 <?php
 
-namespace Core;
-
 use COM;
 use Exception;
 
