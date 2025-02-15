@@ -66,8 +66,9 @@ Pour plus d'informations, suivre la [documentation officielle](https://doc.pcsof
 ## TypeManager pour convertir les types automatiquement
 
 Globalement :  
-- les types integer seront convertis en int
+- les types entiers seront convertis en int
 - les types décimaux seront convertis en float
+- les booléens seront convertis en bool
 - les dates (date et datetime) seront converties en DateTimeImmutable
 - les textes seront traités afin de ne pas avoir de soucis avec les accents
 
@@ -76,5 +77,5 @@ Pour activer cette option, définir la variable `AUTO_CONVERT_TYPES` (qui est ut
 ## Problème rencontrés
 
 Évidemment, les types propres à HFSQL ne sont pas (à ma connaissance) récupérables.  
-Je pense notamment aux rubriques de type mémo image ou mémo binaire...
+Je pense notamment aux rubriques de type mémo image ou mémo binaire...  
 Aussi, il est bon de noter que c'est n'est pas très performant même si largement supportable.
