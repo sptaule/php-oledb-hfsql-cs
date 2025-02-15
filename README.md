@@ -81,7 +81,10 @@ Pour activer cette option, définir la variable `AUTO_CONVERT_TYPES` (qui est ut
 $user = Database::get("SELECT id, name, email, password FROM CLIENTS WHERE email = ?", [$email]);
 
 // getAll() pour récupérer plusieurs enregistrements
-$factures = Database::getAll("SELECT id, reference FROM FACTURES WHERE date_expiration BETWEEN ? AND ?", [$dateFrom, $dateTo]);
+$factures = Database::getAll("SELECT id, reference FROM FACTURES WHERE date_expiration BETWEEN ? AND ?", [
+  $dateFrom,
+  $dateTo
+]);
 
 // update() pour mettre à jour un enregistrement
 Database::update('CLIENTS', ["email = $newEmail"], ["name = ?"], [$name]);
