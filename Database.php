@@ -31,7 +31,7 @@ final class Database
         // Chaîne de connexion finale
         return sprintf(
             'Provider=PCSOFT.HFSQL; Data Source=%s; Initial Catalog=%s; User ID=%s; Password=%s; Extended Properties="%s"',
-            HOSTNAME, DATA_SOURCE, USERNAME, PASSWORD, $extendedProperties
+            HOSTNAME, DATABASE, USERNAME, PASSWORD, $extendedProperties
         );
     }
 
