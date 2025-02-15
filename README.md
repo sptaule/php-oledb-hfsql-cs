@@ -2,7 +2,7 @@
 
 ## Ce que c'est
 
-Un example de connexion à une base de données de type HFSQL Client/Serveur (PCSoft) avec PHP en utilisant le provider OLE DB.  
+Un exemple de connexion à une base de données de type HFSQL Client/Serveur (PCSoft) avec PHP en utilisant le provider OLE DB.  
 J'ai rencontré pas mal de difficulté à me connecter, c'est pourquoi je propose ce code d'exemple.  
 Ce n'est qu'à titre informatif et **ce n'est pas voué à être utilisé en production**.
 
