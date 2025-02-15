@@ -1,2 +1,2 @@
-# oledb-hfsql-cs
-How to connect to a HFSQL C/S database using the OLE DB provider
+# Exemple de connexion à une base de données HFSQL Client/Serveur avec le provider OLE DB et PHP
+
