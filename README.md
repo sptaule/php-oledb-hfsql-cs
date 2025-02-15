@@ -1,13 +1,20 @@
 # Exemple de connexion à une base de données HFSQL Client/Serveur avec le provider OLE DB et PHP
 
+## Ce que c'est
+
+Un example de connexion à une base de données de type HFSQL Client/Serveur (PCSoft) avec PHP en utilisant le provider OLE DB.  
+J'ai rencontré pas mal de difficulté à me connecter, c'est pourquoi je propose ce code d'exemple.  
+Ce n'est qu'à titre informatif et **ce n'est pas voué à être utilisé en production**.
+
 ## Pré-requis
 
 - Etre sur **Windows**
+- Avoir installé le provider OLE DB fourni par PCSoft
 - Un serveur **Apache/Nginx**
 - **PHP**
 - L'extension **com_dotnet** pour PHP activée permettant d'intéragir avec les objets COM
 
-## Activer l'extension com_dotnet
+## Comment activer l'extension com_dotnet
 
 1. Vérifier que l'extension **php_com_dotnet.dll** est bien présente dans le dossier `ext` de PHP.
 
@@ -16,7 +23,7 @@
 extension=com_dotnet
 ```
 
-3. Vérifier que ce code est bien présent dans la section COM du fichier **php.ini**
+3. Vérifier que ce code est bien actif dans la section COM du fichier **php.ini**
 
 ```ini
 [COM]
@@ -56,3 +63,18 @@ Valeurs possibles : `Vrai` ou `Faux`.
 A adapter selon vos besoins et votre configuration.  
 Pour plus d'informations, suivre la [documentation officielle](https://doc.pcsoft.fr/fr-fr/?9000059).
 
+## TypeManager pour convertir les types automatiquement
+
+Globalement :  
+- les types integer seront convertis en int
+- les types décimaux seront convertis en float
+- les dates (date et datetime) seront converties en DateTimeImmutable
+- les textes seront traités afin de ne pas avoir de soucis avec les accents
+
+Pour activer cette option, définir la variable `AUTO_CONVERT_TYPES` (qui est utilisée dans la classe TypeManager) à `true`.
+
+## Problème rencontrés
+
+Évidemment, les types propres à HFSQL ne sont pas (à ma connaissance) récupérables.  
+Je pense notamment aux rubriques de type mémo image ou mémo binaire...
+Aussi, il est bon de noter que c'est n'est pas très performant même si largement supportable.
