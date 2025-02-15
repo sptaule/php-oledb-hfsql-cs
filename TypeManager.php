@@ -1,7 +1,5 @@
 <?php
 
-namespace Core;
-
 use DateTimeImmutable;
 
 class TypeManager
