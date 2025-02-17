@@ -61,6 +61,20 @@ Valeurs possibles : `Vrai` ou `Faux`.
 
 <ins>ENCRYPTION</ins>  
 A adapter selon vos besoins et votre configuration.  
+
+<insExemple</ins>  
+
+```php
+const string HOSTNAME = "localhost:4900";
+const string DATABASE = "my_app_db";
+const string USERNAME = "my_server_user";
+const string PASSWORD = "my_server_password";
+const string FILE_PASSWORD_STRING = "Password=CLIENTS:file_pw;FONDATIONS:file_pw;PAYS:file_pw;FACTURES:file_pw;";
+const string LANGUAGE = "ISO-8859-1";
+const string COMPRESSION = "Vrai";
+const string ENCRYPTION = "rc5_16";
+```
+
 Pour plus d'informations, suivre la [documentation officielle](https://doc.pcsoft.fr/fr-fr/?9000059).
 
 ## TypeManager pour convertir les types automatiquement
