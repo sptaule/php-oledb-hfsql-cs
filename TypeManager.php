@@ -4,9 +4,16 @@ use DateTimeImmutable;
 
 class TypeManager
 {
+    /**
+     * Fonction pour obtenir le type converti
+     *
+     * @param int $fieldType Le type du champ
+     * @param mixed $fieldValue La valeur du champ
+     * @return mixed La valeur convertie en fonction du type
+     */
     public static function convert(int $fieldType, mixed $fieldValue): mixed
     {
-        if (!AUTO_CONVERT_TYPES) {
+        if (!Cfg::get('db.auto_convert_types')) {
             return $fieldValue;
         }
         return match ($fieldType) {
@@ -20,10 +27,34 @@ class TypeManager
         };
     }
 
-    private static function convertToString(mixed $value): string
+    /**
+     * Convertit une chaîne en UTF-8 lors de la récupération des données.
+     * Cela permet de s'assurer que les accents sont correctement gérés.
+     *
+     * @param string $value La valeur à convertir
+     * @return string La valeur convertie
+     */
+
+    public static function convertToString(mixed $value): string
     {
         if ($value !== null) {
-            return mb_convert_encoding($value, 'UTF-8', 'ISO-8859-1');
+            return mb_convert_encoding($value, 'UTF-8', LANGUAGE);
+        } else {
+            return "";
+        }
+    }
+
+    /**
+     * Convertit une chaîne UTF-8 avant de l'envoyer à la base de données.
+     * Cela permet de s'assurer que les accents sont correctement stockés.
+     *
+     * @param string $value La valeur à convertir
+     * @return string La valeur convertie
+     */
+    public static function encodeToString(mixed $value): string
+    {
+        if ($value !== null) {
+            return mb_convert_encoding($value, LANGUAGE, 'UTF-8');
         } else {
             return "";
         }
