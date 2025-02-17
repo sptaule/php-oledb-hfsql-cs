@@ -104,4 +104,4 @@ Database::delete('CLIENTS', "id = ?", [$id]);
 
 Évidemment, les types propres à HFSQL ne sont pas (à ma connaissance) récupérables.  
 Je pense notamment aux rubriques de type mémo image ou mémo binaire...  
-Aussi, il est bon de noter que c'est n'est pas très performant même si largement supportable.
+Aussi, il est bon de noter que ce n'est pas très performant même si largement supportable.
