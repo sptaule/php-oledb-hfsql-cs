@@ -73,6 +73,7 @@ const string FILE_PASSWORD_STRING = "Password=CLIENTS:file_pw;FONDATIONS:file_pw
 const string LANGUAGE = "ISO-8859-1";
 const string COMPRESSION = "Vrai";
 const string ENCRYPTION = "rc5_16";
+const bool AUTO_CONVERT_TYPES = true;
 ```
 
 Pour plus d'informations, suivre la [documentation officielle](https://doc.pcsoft.fr/fr-fr/?9000059).
