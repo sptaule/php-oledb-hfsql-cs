@@ -102,6 +102,12 @@ final class Database
 
     public static function insert(string $table, array $data): bool
     {
+        foreach ($data as $key => $value) {
+            if (is_string($value)) {
+                $data[$key] = TypeManager::encodeToString($value);
+            }
+        }
+
         $columns = implode(", ", array_keys($data));
         $placeholders = implode(", ", array_fill(0, count($data), "?"));
         $query = "INSERT INTO $table ($columns) VALUES ($placeholders)";
@@ -114,6 +120,12 @@ final class Database
 
     public static function update(string $table, array $data, string $whereClause, array $whereParams): bool
     {
+        foreach ($data as $key => $value) {
+            if (is_string($value)) {
+                $data[$key] = TypeManager::encodeToString($value);
+            }
+        }
+
         $setClauses = [];
         foreach ($data as $column => $value) {
             $setClauses[] = "$column = ?";
