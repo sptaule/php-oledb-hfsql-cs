@@ -62,7 +62,7 @@ Valeurs possibles : `Vrai` ou `Faux`.
 <ins>ENCRYPTION</ins>  
 A adapter selon vos besoins et votre configuration.  
 
-<insExemple</ins>  
+<ins>Exemple</ins>  
 
 ```php
 const string HOSTNAME = "localhost:4900";
